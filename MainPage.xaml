@@ -8,17 +8,17 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Name="DrawingArea">
-        <Image x:Name="kyrbyImage" HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Source="Assets/kirby_mario.png" ManipulationMode="TranslateX , TranslateY, Scale" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" ManipulationCompleted="ImageOnManipulationCompleted">
+        <Image x:Name="kyrbyImage" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Source="Assets/kirby_mario.png" ManipulationMode="TranslateX , TranslateY, Scale" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" ManipulationCompleted="ImageOnManipulationCompleted">
             <Image.RenderTransform>
                 <CompositeTransform/>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="samusImage" HorizontalAlignment="Left" Height="250" VerticalAlignment="Bottom" Source="Assets/samus.png" ManipulationMode="TranslateX , TranslateY, Scale" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" ManipulationCompleted="ImageOnManipulationCompleted">
+        <Image x:Name="samusImage" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Source="Assets/samus.png" ManipulationMode="TranslateX , TranslateY, Scale" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" ManipulationCompleted="ImageOnManipulationCompleted">
             <Image.RenderTransform>
                 <CompositeTransform/>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="megamanImage" HorizontalAlignment="Right" Height="250" VerticalAlignment="Top" Source="Assets/megaman.png" ManipulationMode="TranslateX , TranslateY, Scale" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" ManipulationCompleted="ImageOnManipulationCompleted">
+        <Image x:Name="megamanImage" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Source="Assets/megaman.png" ManipulationMode="TranslateX , TranslateY, Scale" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" ManipulationCompleted="ImageOnManipulationCompleted">
             <Image.RenderTransform>
                 <CompositeTransform/>
             </Image.RenderTransform>

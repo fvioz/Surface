@@ -21,70 +21,65 @@ namespace Surface
             var image = (Image)sender;
             var transform = (CompositeTransform)image.RenderTransform;
 
+            var imageWidth = image.ActualWidth;
+            var imageHeight = image.ActualHeight;
+            var deltaScale = e.Delta.Scale;
+            var deltaTranslationX = e.Delta.Translation.X;
+            var deltaTranslationY = e.Delta.Translation.Y;
 
-            // Only allow scaling when both dimensions are smaller than the drawingarea
-            if (image.ActualHeight * (transform.ScaleY * e.Delta.Scale) < DrawingArea.ActualHeight &&
-                image.ActualWidth * (transform.ScaleX * e.Delta.Scale) < DrawingArea.ActualWidth)
-            {
-                transform.ScaleX *= e.Delta.Scale;
-                transform.ScaleY *= e.Delta.Scale;
-            }
 
-            // LEFT-RIGHT bounds
-            if (e.Delta.Translation.X < 0) // Going left
+            if (imageHeight * (transform.ScaleY * deltaScale) < DrawingArea.ActualHeight && imageWidth * (transform.ScaleX * deltaScale) < DrawingArea.ActualWidth)
             {
-                if (DrawingArea.ActualWidth / 2 + (transform.TranslateX + e.Delta.Translation.X) - image.ActualWidth / 2 > 0)
-                {
-                    // Staying inside, apply translation
-                    transform.TranslateX += e.Delta.Translation.X;
-                }
-                else
-                {
-                    // Trying to go outside, because scale sucks to work with, move image back inside
-                    transform.TranslateX = image.ActualWidth / 2 - DrawingArea.ActualWidth / 2;
-                }
-            }
-            else // Going right
-            {
-                if (DrawingArea.ActualWidth / 2 - (transform.TranslateX + e.Delta.Translation.X) +
-                    image.ActualWidth * (0.5 - transform.ScaleX) > 0)
-                {
-                    // Staying inside, apply translation
-                    transform.TranslateX += e.Delta.Translation.X;
-                }
-                else
-                {
-                    // Trying to go outside, move image back inside
-                    transform.TranslateX = image.ActualWidth * (0.5 - transform.ScaleX) + DrawingArea.ActualWidth / 2;
-                }
+                transform.ScaleX *= deltaScale;
+                transform.ScaleY *= deltaScale;
             }
 
-            // UP-DOWN bounds
-            if (e.Delta.Translation.Y < 0) // Going up
+            if (deltaTranslationX < 0) // Izquierda
             {
-                if (DrawingArea.ActualHeight / 2 + (transform.TranslateY + e.Delta.Translation.Y) - image.ActualHeight / 2 > 0)
+                if (DrawingArea.ActualWidth / 2 + (transform.TranslateX + deltaTranslationX) - imageWidth / 2 > 0)
                 {
-                    // Staying inside, apply translation
-                    transform.TranslateY += e.Delta.Translation.Y;
+                    transform.TranslateX += deltaTranslationX;
                 }
                 else
                 {
-                    // Trying to go outside, move image back inside
-                    transform.TranslateY = image.ActualHeight / 2 - DrawingArea.ActualHeight / 2;
+                    transform.TranslateX = imageWidth / 2 - DrawingArea.ActualWidth / 2;
                 }
             }
-            else // Going down
+            else // Derecha
             {
-                if (DrawingArea.ActualHeight / 2 - (transform.TranslateY + e.Delta.Translation.Y) +
-                    image.ActualHeight * (0.5 - transform.ScaleY) > 0)
+                if (DrawingArea.ActualWidth / 2 - (transform.TranslateX + deltaTranslationX) +
+                    imageWidth * (0.5 - transform.ScaleX) > 0)
                 {
-                    // Staying inside, apply translation
-                    transform.TranslateY += e.Delta.Translation.Y;
+                    transform.TranslateX += deltaTranslationX;
                 }
                 else
                 {
-                    // Trying to go outside, move image back inside
-                    transform.TranslateY = image.ActualHeight * (0.5 - transform.ScaleY) + DrawingArea.ActualHeight / 2;
+                    transform.TranslateX = imageWidth * (0.5 - transform.ScaleX) + DrawingArea.ActualWidth / 2;
+                }
+            }
+            
+        
+            if (deltaTranslationY < 0) // Arriba
+            {
+                if (DrawingArea.ActualHeight / 2 + (transform.TranslateY + deltaTranslationY) - imageHeight / 2 > 0)
+                {
+                    transform.TranslateY += deltaTranslationY;
+                }
+                else
+                {
+                    transform.TranslateY = imageHeight / 2 - DrawingArea.ActualHeight / 2;
+                }
+            }
+            else // Abajo
+            {
+                if (DrawingArea.ActualHeight / 2 - (transform.TranslateY + deltaTranslationY) +
+                    imageHeight * (0.5 - transform.ScaleY) > 0)
+                {
+                    transform.TranslateY += deltaTranslationY;
+                }
+                else
+                {
+                    transform.TranslateY = imageHeight * (0.5 - transform.ScaleY) + DrawingArea.ActualHeight / 2;
                 }
             }
         }
