@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="Surface.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,17 +8,17 @@
     mc:Ignorable="d">
 
     <Grid x:Name="DrawingArea">
-        <Image x:Name="kyrbyImage" Source="Assets/kirby_mario.png" ManipulationMode="TranslateX, TranslateY, Scale, Rotate" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" RenderTransformOrigin="0.5, 0.5" ManipulationCompleted="ImageOnManipulationCompleted">
+        <Image x:Name="kyrbyImage" Source="Assets/kirby_mario.png" ManipulationMode="TranslateX, TranslateY, TranslateInertia, Scale, Rotate" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" RenderTransformOrigin="0.5, 0.5" ManipulationCompleted="ImageOnManipulationCompleted">
             <Image.RenderTransform>
                 <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="samusImage" Source="Assets/samus.png" ManipulationMode="TranslateX, TranslateY, Scale, Rotate" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" RenderTransformOrigin="0.5, 0.5" ManipulationCompleted="ImageOnManipulationCompleted">
+        <Image x:Name="samusImage" Source="Assets/samus.png" ManipulationMode="TranslateX, TranslateY, TranslateInertia, Scale, Rotate" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" RenderTransformOrigin="0.5, 0.5" ManipulationCompleted="ImageOnManipulationCompleted">
             <Image.RenderTransform>
                 <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="megamanImage" Source="Assets/megaman.png" ManipulationMode="TranslateX, TranslateY, Scale, Rotate" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" RenderTransformOrigin=".5, .5" ManipulationCompleted="ImageOnManipulationCompleted">
+        <Image x:Name="megamanImage" Source="Assets/megaman.png" ManipulationMode="TranslateX, TranslateY, TranslateInertia, Scale, Rotate" ManipulationStarted="ImageOnManipulationStarted" ManipulationDelta="ImageOnManipulationDelta" RenderTransformOrigin=".5, .5" ManipulationCompleted="ImageOnManipulationCompleted">
             <Image.RenderTransform>
                 <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
             </Image.RenderTransform>
